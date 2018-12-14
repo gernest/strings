@@ -1,10 +1,6 @@
 const std = @import("std");
-const assertOrPanic = std.debug.assertOrPanic;
+const mem = std.mem;
 
-export fn add(a: i32, b: i32) i32 {
-    return a + b;
-}
-
-test "basic add functionality" {
-    assertOrPanic(add(3, 7) == 10);
+fn equal(a: []const u8, b: []const u8) bool {
+    return mem.eql(u8, a, b);
 }
