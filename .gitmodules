@@ -1,0 +1,3 @@
+[submodule "lib/zunicode"]
+	path = lib/zunicode
+	url = https://github.com/gernest/zunicode.git
