@@ -37,13 +37,6 @@ const Exploding = struct {
     }
 };
 
-test "explode" {
-    const e = &Exploding.init("abcdefg");
-    while (try e.next()) |v| {
-        warn("{}\n", v);
-    }
-}
-
 pub fn indexByte(b: []const u8, c: u8) ?usize {
     return mem.indexOfScalar(u8, a, c);
 }
@@ -62,4 +55,12 @@ pub fn hasPrefix(s: []const u8, prefix: []const u8) bool {
 pub fn hasSuffix(s: []const u8, suffix: []const u8) bool {
     return s.len >= suffix.len and
         equal(s[s.len - suffix.len ..], suffix);
+}
+
+pub fn trimPrefix(s: []const u8, prefix: []const u8) []const u8 {
+    return mem.trimLeft(u8, s, prefix);
+}
+
+pub fn trimSuffix(s: []const u8, suffix: []const u8) []const u8 {
+    return mem.trimRight(u8, s, suffix);
 }
