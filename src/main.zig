@@ -52,3 +52,14 @@ pub fn indexByte(b: []const u8, c: u8) ?usize {
 pub fn contains(s: []const u8, sub_slice: []const u8) bool {
     return mem.indexOf(u8, s, sub_slice) != null;
 }
+
+/// hasPrefix returns true if slice s begins with prefix.
+pub fn hasPrefix(s: []const u8, prefix: []const u8) bool {
+    return s.len >= prefix.len and
+        equal(s[0..prefix.len], prefix);
+}
+
+pub fn hasSuffix(s: []const u8, suffix: []const u8) bool {
+    return s.len >= suffix.len and
+        equal(s[s.len - suffix.len ..], suffix);
+}
