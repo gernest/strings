@@ -8,6 +8,7 @@ pub fn equal(a: []const u8, b: []const u8) bool {
     return mem.eql(u8, a, b);
 }
 
+/// compare compares the two strings.
 pub fn compare(a: []const u8, b: []const u8) mem.Compare {
     return mem.compare(u8, a, b);
 }
@@ -45,4 +46,9 @@ test "explode" {
 
 pub fn indexByte(b: []const u8, c: u8) ?usize {
     return mem.indexOfScalar(u8, a, c);
+}
+
+/// returns true if sub_slice is within s.
+pub fn contains(s: []const u8, sub_slice: []const u8) bool {
+    return mem.indexOf(u8, s, sub_slice) != null;
 }
